@@ -7,6 +7,8 @@ import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Icon from 'astro-icon';
 
 const meta = {
   title: SITE.title,
@@ -20,7 +22,7 @@ const meta = {
 
   <Hero
     callToAction={{ text: 'Learn more', href: '#features' }}
-    callToAction2={{ text: 'Get a quote!', href: '#taste' }}
+    callToAction2={{ text: 'Get a quote!', href: '#contact' }}
   >
     <Fragment slot="title">
       Hey There! I'm
@@ -400,20 +402,28 @@ const meta = {
 
   <!-- CallToAction Widget *********** -->
 
-  <!-- <CallToAction
+  <CallToAction
     callToAction={{
-      text: 'Get template',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:download',
+      text: 'Send a WhatsApp',
+      href: 'https://wa.me/+971585660302',
+      icon: 'tabler:message',
     }}
   >
-    <Fragment slot="title">
-      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
+    <Fragment slot="title">Reach Out</Fragment>
 
+    <Fragment slot="subtitle">For quotes or collaborations, send an email, or a whatsapp message.</Fragment>
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      <ul class="my-4 text-left space-y-2" id="contact">
+        <li class="flex"><Icon name={'tabler:map-pin'} class="w-5 h-5 mr-1 -ml-1.5" /> Dubai, UAE</li>
+        <li class="flex">
+          <Icon name={'tabler:mail'} class="w-5 h-5 mr-1 -ml-1.5" />
+          <a href="mailto: writer@vanmarcmontero.com" class="hover:underline">writer@vanmarcmontero.com</a> | <a
+            href="mailto: writer@vanmarcmontero.com"
+            class="hover:underline">vanmarcmontero@gmail.com</a
+          >
+        </li>
+        <li class="flex"><Icon name={'tabler:phone'} class="w-5 h-5 mr-1 -ml-1.5" />+971585660302</li>
+      </ul>
     </Fragment>
-  </CallToAction> -->
+  </CallToAction>
 </Layout>
