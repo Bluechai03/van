@@ -1,0 +1,419 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    callToAction={{ text: 'Learn more', href: '#features' }}
+    callToAction2={{ text: 'Get a quote!', href: '#taste' }}
+  >
+    <Fragment slot="title">
+      Hey There! I'm
+      <span class="text-accent dark:text-white highlight"> Vanmarc Montero</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        I'm a writer specializing in<span class="font-semibold">
+          IT, blockchain technology, entertainment, and news.</span
+        >
+        <br /> I provide freelance writing, proofreading, and editing services.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <!-- <Note /> -->
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    highlight="Services"
+    title="What you get with Vanmarc"
+    subtitle="Vanmarc offers a range of writing, proofreading, and editing services that ensures your project is putting its best foot forward."
+    items={[
+      [
+        {
+          title: 'Whitepaper Content',
+          description: `Receive high-quality and well-researched content that showcases your project's expertise, and positions you as a go-to source for solutions to specific issues.`,
+          icon: 'tabler:brand-tailwind',
+        },
+        {
+          title: 'Press Release Content',
+          description:
+            'Receive well-crafted Press Release content tailored to appeal to journalists and media outlets.',
+          icon: 'tabler:rocket',
+        },
+        {
+          title: 'Metadata Content',
+          description:
+            'Receive personalized, appealing, engaging, and SEO-friendly metadata content for your websites.',
+          icon: 'tabler:bulb',
+        },
+      ],
+      [
+        {
+          title: 'Website Content',
+          description: `Receive well-written, SEO-friendly, engaging, and well-researched website content to build your website's credibility and make it stand out online.`,
+          icon: 'tabler:components',
+        },
+        {
+          title: 'Article/Blog Content',
+          description:
+            'Receive well-written and thoroughly researched articles or blogs that establish your project as an authority on a particular subject.',
+          icon: 'tabler:list-check',
+        },
+        {
+          title: 'Manual Content',
+          description:
+            'Receive clear, easy-to-understand product or service manuals intended for internal use or for the customers/users of your project.',
+          icon: 'tabler:arrows-right-left',
+        },
+      ],
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    highlight="Portfolio"
+    title="Vanmarc's Experience"
+    row={true}
+    items={[
+      {
+        title: 'Websites',
+        list: [
+          { text: 'Sample 1', link: 'https://meci.io/' },
+          { text: 'Sample 2', link: 'https://ladyapeclub.com/' },
+          { text: 'Sample 3', link: 'https://javlchain.com/' },
+          { text: 'Sample 4', link: 'https://terrancoin.com/' },
+        ],
+      },
+      {
+        title: 'Articles/Blogs',
+        list: [
+          {
+            text: 'Sample 1',
+            link: 'https://coinedition.com/dogecoin-history-cryptocurrencys-unlikely-success-story/',
+          },
+          {
+            text: 'Sample 2',
+            link: 'https://realresearcher.com/media/survey-public-opinion-on-who-would-replace-daniel-craig-as-the-new-james-bond/',
+          },
+        ],
+      },
+      {
+        title: 'Press Releases',
+        list: [
+          {
+            text: 'Sample 1',
+            link: 'https://coinedition.com/supercup-of-spain-nfts-a-roaring-success-sold-out-within-1-hour/',
+          },
+          {
+            text: 'Sample 2',
+            link: 'https://coinedition.com/3d-factory-to-release-collections-after-successful-super-cup-launch/',
+          },
+          {
+            text: 'Sample 3',
+            link: 'https://coinedition.com/tnc-it-solutions-group-brings-the-asta-into-its-extensive-network/',
+          },
+        ],
+      },
+      {
+        title: 'Whitepapers',
+        list: [
+          {
+            text: 'Sample 1',
+            link: 'https://javlchain.com/whitepaper.html',
+          },
+          {
+            text: 'Sample 2',
+            link: 'https://bibl-chain.com/whitepaper.pdf?ver=2.4',
+          },
+          {
+            text: 'Sample 3',
+            link: 'https://terrancoin.com/whitepaper.pdf',
+          },
+        ],
+      },
+      {
+        title: 'Manual',
+        list: [
+          {
+            text: 'Sample 1',
+            link: 'https://trade.abbccoin.com/user-manual.pdf',
+          },
+        ],
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/portfolio.jpg'),
+      alt: 'Portfolio Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 id="taste" class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A Taste of Vanmarc's Writing
+      </h3>
+      Below are samples of Vanmarc's writing from different projects over the years.
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    title={`A Taste of Vanmarc's Writing`}
+    subtitle={`You can gain Vanmarc's writing services with the following general rate of 0.5 fils/0.13c per word.`}
+    items={[
+      {
+        title: 'Article/Blog Rate',
+        description: '250 AED/$70 per 500 word content ',
+      },
+      {
+        title: 'Press Release Rate',
+        description: '375 AED/$105 per 500 word content ',
+      },
+      {
+        title: 'Website Landing Page Rate ',
+        description: '150 AED/$45 per page ',
+      },
+      {
+        title: 'White Paper Rate ',
+        description: '1,000 AED/$275 per 1,000 word content',
+      },
+      {
+        title: 'Additional Rates',
+        list: [
+          {
+            text: '30 AED for additional research',
+          },
+          {
+            text: '2 Free Revisions with 15 AED per revision afterwards',
+          },
+        ],
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/pricing.jpg'),
+      alt: 'Pricing Image',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Vanmarc Has Experience in IT, Blockchain, and Pop Culture"
+    items={[
+      {
+        title: 'Experience',
+        description:
+          'Vanmarc is a professional writer with 4 years of professional experience and over 10 years of total writing experience. He has strong skills in comprehension, communication, and client management.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Companies',
+        description:
+          'He has worked for companies such as CoinEdition (previously CoinQuora), Real Research, TNC IT Solutions, and BXDNow.',
+        icon: 'tabler:shredder',
+      },
+      {
+        title: 'CoinEdition',
+        description:
+          'At CoinEdition/CoinQuora, he is a Senior Editor, where he has written, proofread, and edited over 500 news and feature articles.',
+        icon: 'tabler:news',
+      },
+      {
+        title: 'Research',
+        description: 'At Real Research, he has written over 50 blogs and surveys.',
+        icon: 'tabler:file-report',
+      },
+      {
+        title: 'Job ',
+        description:
+          'At TNC IT Solutions, he has handled over 10 blockchain client projects, resulting in a total of over 300 social media posts, press releases, email content, website content, and whitepaper content. ',
+        icon: 'tabler:paperclip',
+      },
+      {
+        title: 'On The Side',
+        description: 'Vanmarc also published over 10 personal articles on a Dubai-based blogging platform BXDNow.',
+        icon: 'tabler:notebook',
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/creativity.jpg'),
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+  <!-- 
+  <Features2
+    title="Most used widgets"
+    subtitle="Provides frequently used components for building websites using Tailwind CSS"
+    highlight="Components"
+    items={[
+      {
+        title: 'Headers',
+        description:
+          'In general, Headers contain information that makes it easier for visitors to interact with the website.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Heros',
+        description:
+          'If you want your website to get more than its fair share of visitors, the Hero section needs to be stellar.',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Features',
+        description:
+          'Display your product in action and how the Features actually create a solution for your target customer.',
+        icon: 'flat-color-icons:todo-list',
+      },
+      {
+        title: 'Content',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Call-to-Action',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: 'Pricing',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:currency-exchange',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'Contact',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'flat-color-icons:business-contact',
+      },
+      {
+        title: 'Footers',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+        icon: 'icon-park:page-template',
+      },
+    ]}
+  /> -->
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!-- <LatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+			Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+			Astro is a very interesting technology. Thanks.
+		`}
+    postIds={[
+      'get-started-website-with-astro-tailwind-css.md',
+      'how-to-customize-astrowind-to-your-brand.md',
+      'useful-resources-to-create-websites.md',
+      'astrowind-template-in-depth.md',
+    ]}
+  /> -->
+
+  <!-- FAQs Widget ******************* -->
+
+  <!-- <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Duis turpis dui, fringilla mattis sem nec, fringilla euismod neque. Morbi tincidunt lacus nec tortor scelerisque pulvinar."
+    highlight="FAQs"
+    items={[
+      [
+        {
+          question: 'What do I need to start?',
+          answer:
+            'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+        },
+        {
+          question: 'How to install the Astro + Tailwind CSS template?',
+          answer:
+            "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.",
+        },
+        {
+          question: "What's something that you don't understand?",
+          answer:
+            "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+        },
+      ],
+      [
+        {
+          question: "What's an example of when you changed your mind?",
+          answer:
+            "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+        },
+        {
+          question: 'What is something that you would like to try again?',
+          answer:
+            "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+        },
+        {
+          question: 'If you could only ask one question to each person you meet, what would that question be?',
+          answer:
+            "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        },
+      ],
+    ]}
+  /> -->
+
+  <!-- Stats Widget ****************** -->
+  <!-- 
+  <Stats
+    items={[
+      { name: 'Downloads', value: '132K' },
+      { name: 'Stars', value: '24.8K' },
+      { name: 'Forks', value: '10.3K' },
+      { name: 'Users', value: '48.4K' },
+    ]}
+  /> -->
+
+  <!-- CallToAction Widget *********** -->
+
+  <!-- <CallToAction
+    callToAction={{
+      text: 'Get template',
+      href: 'https://github.com/onwidget/astrowind',
+      icon: 'tabler:download',
+    }}
+  >
+    <Fragment slot="title">
+      Astro + <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P
+    </Fragment>
+  </CallToAction> -->
+</Layout>
