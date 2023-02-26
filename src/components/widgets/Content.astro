@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon';
 import { Picture } from '@astrojs/image/components';
 
 interface Sample {
@@ -70,12 +69,14 @@ const {
 
         {
           items && (
-            <div class={`${row ? 'flex flex-col md:flex-row md:gap-3' : 'space-y-8'}`}>
+            <div class={`${row ? 'flex flex-col sm:flex-row gap-3' : 'space-y-8'} justify-between`}>
               {items.map(({ title: title2, description, list }) => (
                 <div class="flex gap-4">
                   <div>
                     {title2 && (
-                      <h3 class="text-lg font-medium leading-6 dark:text-white whitespace-nowrap">{title2}</h3>
+                      <h3 class="text-xl font-medium leading-6 text-muted dark:text-white whitespace-nowrap">
+                        {title2}
+                      </h3>
                     )}
                     {description && <p class="mt-2 text-muted dark:text-slate-400" set:html={description} />}
                     {list && (

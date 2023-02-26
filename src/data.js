@@ -12,8 +12,8 @@ export const headerData = {
 export const footerData = {
   links: [],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    // { text: 'Terms', href: getPermalink('/terms') },
+    // { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
     { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },

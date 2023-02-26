@@ -3,7 +3,7 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'Vanmarc Montero',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://vanmarcmontero.com',
   basePathname: '/',
   trailingSlash: false,
 
