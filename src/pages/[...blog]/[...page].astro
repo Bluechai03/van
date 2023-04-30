@@ -9,6 +9,9 @@ import Pagination from '~/components/blog/Pagination.astro';
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE } from '~/utils/permalinks';
 
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
   return paginate(await fetchPosts(), {
@@ -26,6 +29,12 @@ const meta = {
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',
 };
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/home', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+});
+const content = data.story.content;
 ---
 
 <Layout {meta}>
@@ -35,6 +44,7 @@ const meta = {
     >
       The Blog
     </Headline>
+    <StoryblokComponent blok={content} />
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>

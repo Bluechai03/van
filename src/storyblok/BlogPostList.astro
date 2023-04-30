@@ -1,0 +1,40 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import { useStoryblokApi } from '@storyblok/astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import { getCanonical, getPermalink } from '~/utils/permalinks';
+import BlogList from '~/components/blog/List.astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? 'draft' : 'published',
+  content_type: 'blogPost',
+});
+
+const posts = data.stories.map((story, index) => {
+  // const url = getCanonical(getPermalink(post, 'post'));
+  return {
+    id: index,
+    title: story.content.title,
+    image: story.image,
+    date: new Date(story.published_at).toLocaleDateString('en-US', { dateStyle: 'full' }),
+    description: story.content.description,
+    slug: story.full_slug,
+    permalink: story.full_slug,
+  };
+});
+
+const { blok } = Astro.props;
+---
+
+<ul {...storyblokEditable(blok)}>
+  <BlogList posts={posts} />
+  <!-- 
+  {
+    posts.map((post) => {
+      const url = getCanonical(getPermalink(post, 'post'));
+      return <SinglePost post={{ ...post, image: post.image }} url={url} />;
+    })
+  } -->
+</ul>
