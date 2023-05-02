@@ -1,14 +1,13 @@
 ---
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
-
 import Content from '~/components/widgets/Content.astro';
-import Contact from '~/components/widgets/Contact.astro';
 import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Icon from 'astro-icon';
+import Contact from '~/components/widgets/Contact.astro';
 
 const meta = {
   title: SITE.title,
@@ -296,10 +295,10 @@ const meta = {
     <Fragment slot="subtitle">
       <ul class="my-4 text-left space-y-2" id="contact">
         <li class="flex"><Icon name={'tabler:map-pin'} class="w-5 h-5 mr-1 -ml-1.5" /> Dubai, UAE</li>
-        <li class="flex">
+        <!-- <li class="flex">
           <Icon name={'tabler:mail'} class="w-5 h-5 mr-1 -ml-1.5" />
           <a href="mailto: writer@vanmarcmontero.com" class="hover:underline">writer@vanmarcmontero.com</a>
-        </li>
+        </li> -->
         <li class="flex">
           <Icon name={'tabler:mail'} class="w-5 h-5 mr-1 -ml-1.5" />
           <a href="mailto: writer@vanmarcmontero.com" class="hover:underline">vanmarcmontero@gmail.com</a>
