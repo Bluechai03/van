@@ -8,9 +8,14 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 import { SITE } from './src/config.mjs';
-import netlify from "@astrojs/netlify/functions";
+import netlify from '@astrojs/netlify/functions';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const whenExternalScripts = (items = []) => SITE.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
+const whenExternalScripts = (items = []) =>
+  SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
+import storyblok from '@storyblok/astro';
+import { loadEnv } from 'vite';
+
+const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,33 +23,56 @@ export default defineConfig({
   base: SITE.basePathname,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), sitemap(), image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), ...whenExternalScripts(() => partytown({
-    config: {
-      forward: ['dataLayer.push']
-    }
-  })), compress({
-    css: true,
-    html: {
-      removeAttributeQuotes: false
-    },
-    img: false,
-    js: true,
-    svg: false,
-    logger: 1
-  })],
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    storyblok({
+      accessToken: env.STORYBLOK_TOKEN,
+      components: {
+        // Add your components here
+        blogPost: 'storyblok/BlogPost',
+        blogPostList: 'storyblok/BlogPostList',
+        page: 'storyblok/Page',
+      },
+      apiOptions: {
+        // Choose your Storyblok space region
+        region: 'eu', // optional,  or 'eu' (default)
+      },
+    }),
+
+    sitemap(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp',
+    }),
+    mdx(),
+    ...whenExternalScripts(() =>
+      partytown({
+        config: {
+          forward: ['dataLayer.push'],
+        },
+      })
+    ),
+    compress({
+      css: true,
+      html: {
+        removeAttributeQuotes: false,
+      },
+      img: false,
+      js: true,
+      svg: false,
+      logger: 1,
+    }),
+  ],
   markdown: {},
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src')
-      }
-    }
+        '~': path.resolve(__dirname, './src'),
+      },
+    },
   },
-  adapter: netlify()
+  adapter: netlify(),
 });

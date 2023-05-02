@@ -11,7 +11,7 @@ const CONFIG = {
   description: 'Specializing in IT, blockchain technology, entertainment, and news. ',
   defaultImage: defaultImage,
 
-  defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  defaultTheme: 'light', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   language: 'en',
   textDirection: 'ltr',
