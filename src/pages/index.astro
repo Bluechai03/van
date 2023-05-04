@@ -38,63 +38,63 @@ const meta = {
     </Fragment>
   </Hero>
 
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Here's Some Information About Me"
+    items={[
+      {
+        title: 'Personal Background',
+        description:
+          'I am a professional writer with 4 years of professional experience and over 10 years of total writing experience. I have strong comprehension, communication, and client management skills.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Work Experience',
+        description:
+          'As a content specialist, I have worked for companies such as CoinEdition (online news platform, previously CoinQuora), Real Research (online survey platform), TNC IT Solutions (Dubai-based Korean blockchain company), and BXDNow (Dubai-based blogging group).',
+        icon: 'tabler:shredder',
+      },
+      {
+        title: 'CoinEdition',
+        description:
+          "At CoinEditon/CoinQuora, I've worked as senior editor. I have written, proofread, and edited over 500 news and feature articles.",
+        icon: 'tabler:news',
+      },
+      {
+        title: 'Real Research',
+        description: 'At Real Research, he has written over 100 blogs and surveys.',
+        icon: 'tabler:file-report',
+      },
+      {
+        title: 'Managed Projects',
+        description:
+          'At TNC IT Solutions, I have handled over 10 blockchain client projects, resulting in a total of over 300 social media posts, press releases, email content, website, content and whitepaper content, among other things.',
+        icon: 'tabler:paperclip',
+      },
+      {
+        title: 'Personal Work',
+        description: 'As a side project, I published over 10 personal articles on BXDNow.',
+        icon: 'tabler:notebook',
+      },
+    ]}
+    image={{
+      src: import('~/assets/images/creativity.jpg'),
+      alt: 'Steps image',
+    }}
+  />
+
   <!-- Note Widget ******************* -->
 
   <!-- <Note /> -->
 
   <!-- Features Widget *************** -->
 
-  <Features
-    highlight="Services"
-    title="What you get with Vanmarc"
-    subtitle="Vanmarc offers a range of writing, proofreading, and editing services that ensures your project is putting its best foot forward."
-    items={[
-      [
-        {
-          title: 'Whitepaper Content',
-          description: `Receive high-quality and well-researched content that showcases your project's expertise, and positions you as a go-to source for solutions to specific issues.`,
-          icon: 'tabler:brand-tailwind',
-        },
-        {
-          title: 'Press Release Content',
-          description:
-            'Receive well-crafted Press Release content tailored to appeal to journalists and media outlets.',
-          icon: 'tabler:rocket',
-        },
-        {
-          title: 'Metadata Content',
-          description:
-            'Receive personalized, appealing, engaging, and SEO-friendly metadata content for your websites.',
-          icon: 'tabler:bulb',
-        },
-      ],
-      [
-        {
-          title: 'Website Content',
-          description: `Receive well-written, SEO-friendly, engaging, and well-researched website content to build your website's credibility and make it stand out online.`,
-          icon: 'tabler:components',
-        },
-        {
-          title: 'Article/Blog Content',
-          description:
-            'Receive well-written and thoroughly researched articles or blogs that establish your project as an authority on a particular subject.',
-          icon: 'tabler:list-check',
-        },
-        {
-          title: 'Manual Content',
-          description:
-            'Receive clear, easy-to-understand product or service manuals intended for internal use or for the customers/users of your project.',
-          icon: 'tabler:arrows-right-left',
-        },
-      ],
-    ]}
-  />
-
   <!-- Content Widget **************** -->
 
   <Content
-    highlight="Portfolio"
-    title="Vanmarc's Experience"
+    highlight="My Samples"
+    title="For Your Reference"
     row={true}
     items={[
       {
@@ -170,19 +170,66 @@ const meta = {
   >
     <Fragment slot="content">
       <h3 id="taste" class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        A Taste of Vanmarc's Writing
+        Review My Top Quality Work
       </h3>
-      Below are samples of Vanmarc's writing from different projects over the years.
+      You can check my previous work by clicking the links below.
     </Fragment>
   </Content>
+
+  <Features
+    highlight="My Services"
+    title="Receive Top Quality Writing"
+    subtitle="You can ensure your project is putting its best foot forward with my writing, proofreading, and editing services."
+    items={[
+      [
+        {
+          title: 'Whitepaper Content',
+          description: `I specialize in writing whitepapers for the tech industry, specifically blockchain and cryptocurrency projects.`,
+          icon: 'tabler:brand-tailwind',
+        },
+        {
+          title: 'Press Release Content',
+          description:
+            'I place more emphasis on objective reporting, professional statements, and business writing and less on embellishing and subjective content.',
+          icon: 'tabler:rocket',
+        },
+        {
+          title: 'Metadata Content',
+          description:
+            "I'm an expert in creating relevant Title Tags and Meta Descriptions to draw visitors to your website.",
+          icon: 'tabler:bulb',
+        },
+      ],
+      [
+        {
+          title: 'Website Content',
+          description: `I write engaging website content to keep visitors on your page and interested in what you have to say.`,
+          icon: 'tabler:components',
+        },
+        {
+          title: 'Article/Blog Content',
+          description:
+            'I currently focus on pop culture, technology, and blockchain subjects. However, I am adaptable because I employ effective research processes.',
+          icon: 'tabler:list-check',
+        },
+        {
+          title: 'Manual Content',
+          description:
+            'I have written user manuals for tech and blockchain platforms. I ensure to explain every step of the process while using clear terminology.',
+          icon: 'tabler:arrows-right-left',
+        },
+      ],
+    ]}
+  />
 
   <!-- Content Widget **************** -->
 
   <Content
+    highlight={'My Service Rates'}
+    title={`You Can Commission Me!`}
     isReversed
     isAfterContent
-    title={`A Taste of Vanmarc's Writing`}
-    subtitle={`You can gain Vanmarc's writing services with the following general rate of 0.5 fils/0.13c per word.`}
+    subtitle={`Gain my writing services with the following general rates. Please keep in mind that rates may change depending on additional research and revisions.`}
     items={[
       {
         title: 'Article/Blog Rate',
@@ -218,52 +265,6 @@ const meta = {
     }}
   />
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Vanmarc Has Experience in IT, Blockchain, and Pop Culture"
-    items={[
-      {
-        title: 'Experience',
-        description:
-          'Vanmarc is a professional writer with 4 years of professional experience and over 10 years of total writing experience. He has strong skills in comprehension, communication, and client management.',
-        icon: 'tabler:writing',
-      },
-      {
-        title: 'Companies',
-        description:
-          'He has worked for companies such as CoinEdition (previously CoinQuora), Real Research, TNC IT Solutions, and BXDNow.',
-        icon: 'tabler:shredder',
-      },
-      {
-        title: 'CoinEdition',
-        description:
-          'At CoinEdition/CoinQuora, he is a Senior Editor, where he has written, proofread, and edited over 500 news and feature articles.',
-        icon: 'tabler:news',
-      },
-      {
-        title: 'Research',
-        description: 'At Real Research, he has written over 50 blogs and surveys.',
-        icon: 'tabler:file-report',
-      },
-      {
-        title: 'Job ',
-        description:
-          'At TNC IT Solutions, he has handled over 10 blockchain client projects, resulting in a total of over 300 social media posts, press releases, email content, website content, and whitepaper content. ',
-        icon: 'tabler:paperclip',
-      },
-      {
-        title: 'On The Side',
-        description: 'Vanmarc also published over 10 personal articles on a Dubai-based blogging platform BXDNow.',
-        icon: 'tabler:notebook',
-      },
-    ]}
-    image={{
-      src: import('~/assets/images/creativity.jpg'),
-      alt: 'Steps image',
-    }}
-  />
-
   <!-- HighlightedPosts Widget ******* -->
 
   <!-- <LatestPosts
@@ -289,9 +290,11 @@ const meta = {
       icon: 'tabler:message',
     }}
   >
-    <Fragment slot="title">Reach Out</Fragment>
+    <Fragment slot="title">Reach Out To Me!</Fragment>
 
-    <Fragment slot="subtitle">For quotes or collaborations, send an email, or a whatsapp message.</Fragment>
+    <Fragment slot="subtitle">
+      If you want specific quotes or collaborations, send me an email or a Whatsapp message!
+    </Fragment>
     <Fragment slot="subtitle">
       <ul class="my-4 text-left space-y-2" id="contact">
         <li class="flex"><Icon name={'tabler:map-pin'} class="w-5 h-5 mr-1 -ml-1.5" /> Dubai, UAE</li>
