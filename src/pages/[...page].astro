@@ -30,11 +30,11 @@ const meta = {
   ogType: 'blog',
 };
 
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/home', {
-  version: import.meta.env.DEV ? 'draft' : 'published',
-});
-const content = data.story.content;
+// const storyblokApi = useStoryblokApi();
+// const { data } = await storyblokApi.get('cdn/stories/home', {
+//   version: import.meta.env.DEV ? 'draft' : 'published',
+// });
+// const content = data.story.content;
 ---
 
 <Layout {meta}>
@@ -44,7 +44,7 @@ const content = data.story.content;
     >
       The Blog
     </Headline>
-    <StoryblokComponent blok={content} />
+    <!-- <StoryblokComponent blok={content} /> -->
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
