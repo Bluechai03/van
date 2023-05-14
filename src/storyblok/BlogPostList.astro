@@ -12,7 +12,7 @@ const posts = data.stories.map((story, index) => {
   return {
     id: index,
     title: story.content.title,
-    image: story.content.image,
+    image: story.content.image.filename,
     date: story.published_at,
     description: story.content.description,
     excerpt: story.content.excerpt,

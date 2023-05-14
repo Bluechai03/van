@@ -6,7 +6,7 @@ export interface Post {
   title: string;
   description?: string;
 
-  image: Image;
+  image: string;
 
   canonical?: string | URL;
   permalink?: string;
