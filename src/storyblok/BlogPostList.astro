@@ -13,11 +13,12 @@ const posts = data.stories.map((story, index) => {
     id: index,
     title: story.content.title,
     image: story.content.image,
-    date: new Date(story.published_at),
+    date: story.published_at,
     description: story.content.description,
     excerpt: story.content.excerpt,
     slug: story.full_slug,
     permalink: story.full_slug,
+    tags: story.content.tags,
   };
 });
 

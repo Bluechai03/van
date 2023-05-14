@@ -16,11 +16,12 @@ const content = renderRichText(blok.content);
       id: blok.id,
       image: blok.image,
       slug: blok.slug,
-      publishDate: new Date(),
+      publishDate: blok.published_at,
       Content: '',
       title: blok.title,
       description: blok.description,
       excerpt: blok.excerpt,
+      tags: blok.tags,
     }}
     url={blok.permalink}
   />
