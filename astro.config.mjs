@@ -14,6 +14,7 @@ const whenExternalScripts = (items = []) =>
   SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK');
 
@@ -68,6 +69,10 @@ export default defineConfig({
   ],
   markdown: {},
   vite: {
+    plugins: [basicSsl()],
+    server: {
+      https: true,
+    },
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),

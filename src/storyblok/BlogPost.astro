@@ -1,13 +1,29 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
+// Create type for blok
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
 ---
 
-<article {...storyblokEditable(blok)}>
-  <article>{blok}</article>
-  <h1>{blok.title}</h1>
-  <p>{blok.description}</p>
-  <Fragment set:html={content} />
-</article>
+<Layout {...storyblokEditable(blok)}>
+  <SinglePost
+    post={{
+      content,
+      id: blok.id,
+      image: blok.image,
+      slug: blok.slug,
+      publishDate: new Date(),
+      Content: '',
+      title: blok.title,
+      description: blok.description,
+      excerpt: blok.excerpt,
+    }}
+    url={blok.permalink}
+  />
+  {blok.publishDate}
+  <ToBlogLink />
+</Layout>

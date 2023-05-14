@@ -1,10 +1,6 @@
 ---
-import { storyblokEditable } from '@storyblok/astro';
-import { useStoryblokApi } from '@storyblok/astro';
-import SinglePost from '~/components/blog/SinglePost.astro';
-import { getCanonical, getPermalink } from '~/utils/permalinks';
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
 import BlogList from '~/components/blog/List.astro';
-
 const storyblokApi = useStoryblokApi();
 
 const { data } = await storyblokApi.get('cdn/stories', {
@@ -13,13 +9,13 @@ const { data } = await storyblokApi.get('cdn/stories', {
 });
 
 const posts = data.stories.map((story, index) => {
-  // const url = getCanonical(getPermalink(post, 'post'));
   return {
     id: index,
     title: story.content.title,
-    image: story.image,
-    date: new Date(story.published_at).toLocaleDateString('en-US', { dateStyle: 'full' }),
+    image: story.content.image,
+    date: new Date(story.published_at),
     description: story.content.description,
+    excerpt: story.content.excerpt,
     slug: story.full_slug,
     permalink: story.full_slug,
   };
@@ -30,11 +26,4 @@ const { blok } = Astro.props;
 
 <ul {...storyblokEditable(blok)}>
   <BlogList posts={posts} />
-  <!-- 
-  {
-    posts.map((post) => {
-      const url = getCanonical(getPermalink(post, 'post'));
-      return <SinglePost post={{ ...post, image: post.image }} url={url} />;
-    })
-  } -->
 </ul>
