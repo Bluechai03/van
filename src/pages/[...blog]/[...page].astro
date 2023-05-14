@@ -1,14 +1,13 @@
 ---
-import { SITE, BLOG } from '~/config.mjs';
+import { BLOG, SITE } from '~/config.mjs';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
+import BlogPostList from '~/storyblok/BlogPostList.astro';
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE } from '~/utils/permalinks';
-import BlogPostList from '~/storyblok/BlogPostList.astro';
 
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
@@ -37,7 +36,6 @@ const meta = {
       The Blog
     </Headline>
     <BlogPostList />
-    <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </Layout>
