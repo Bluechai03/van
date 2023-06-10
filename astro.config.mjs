@@ -8,7 +8,6 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 import { SITE } from './src/config.mjs';
-import netlify from '@astrojs/netlify/functions';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
   SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
@@ -79,5 +78,4 @@ export default defineConfig({
       },
     },
   },
-  adapter: netlify(),
 });
